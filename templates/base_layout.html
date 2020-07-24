@@ -1,0 +1,39 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel='stylesheet' href='{% static "styles.css" %}'>
+</head>
+<body>
+    <div class='page'>
+    <header class='wrapper'>
+        <h1><a href="{% url 'home' %}">Home</a></h1>
+        <nav>
+            <ul>
+                {% if user.is_authenticated %}
+                
+                <li><a href="{% url 'article:create' %}" class='highlight'>New Article</a></li>
+                {% else %}
+                    <li><a href="{% url 'accounts:login' %}">login</a></li>
+                    <li><a href="{% url 'accounts:signup' %}">signup</a></li>
+                {% endif %}
+                <li><form class='logout-link' action="{% url 'accounts:logout' %}" method='post'>
+                    {% csrf_token %}
+                    <button type="submit">Logout</button>
+                </form>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    {% block content %}
+    {% endblock %}
+    <div class='foot-class'>
+        <h1>END</h1>
+    </div>
+    </div>
+</body>
+</html>

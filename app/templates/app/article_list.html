@@ -1,0 +1,39 @@
+{% extends 'base_layout.html' %}
+
+
+{% block content %}
+    <div class='jumb-class'>
+        <h1>Articles List</h1>
+    </div>
+
+    <div class='cont-class'>
+    <div class='articles'>
+        {% for article in page_obj.object_list %}
+        <a href="{% url 'article:detail' slug=article.slug %}">
+            <div class='article'>
+                <img class='card-img' src='{{ article.thumb.url }}'>
+                <h2>{{ article.title|truncatewords:10 }}</h2>
+                <p class='article-date'>{{ article.date }}</p>
+                <p class='author'>added by {{ article.author.username }}</p>
+            </div>
+        </a>
+        {% endfor %}
+    </div>
+
+    <div class='pagination'>
+        <ul class ='paginate'>
+            <li>
+                <a href="{% if page_obj.has_previous %} ?page={{ page_obj.previous_page_number }} {% endif %}">Prev</a>
+            </li>
+            {% for n in page_obj.paginator.page_range %}
+            {% if n > page_obj.number|add:-3 and n < page_obj.number|add:3 %}
+            <li><a href="?page={{ n }}">{{ n }}</a></li>
+            {% endif %}
+            {% endfor %}
+            <li><a href="{% if page_obj.has_next %} ?page={{ page_obj.next_page_number }} {% endif %}">Next</a></li>
+            </ul>
+    </div>
+    </div>
+{% endblock %}
+
+

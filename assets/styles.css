@@ -1,0 +1,287 @@
+/* BASE */
+
+.imagee {
+    z-index: 10;
+    margin: 50;
+}
+
+body {
+    margin: 0;
+}
+
+.page {
+    display: grid;
+    grid-template:
+    'head head head' 10vh
+    'jumb jumb jumb' 40vh
+    'cont cont cont' minmax(39vh, auto)
+    'foot foot foot' 11vh
+    / 1fr 8fr 1fr;
+}
+
+.wrapper {
+    grid-area: head;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 15em 0 15em;
+    background: #252525;
+}
+
+.wrapper ul {
+    list-style-type: none;
+}
+
+.wrapper li {
+    display: inline-block;
+}
+
+.wrapper a {
+    text-decoration: none;
+    color: #e9d20f;
+}
+
+.wrapper ul {
+    font-size: 1.2em;
+}
+
+.wrapper ul a {
+    padding: 0 8px 0 8px;
+}
+
+.jumb-class {
+    grid-area: jumb;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: #e9d20f;
+    color: #252525;
+    font-size: 3em;
+}
+
+.cont-class {
+    grid-area: cont;
+    padding-top: 1em;
+}
+
+.articles {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding: 0 20em 0 20em;
+    gap: 3em;
+}
+
+.articles a {
+    text-decoration: none;
+    color: #252525;
+}
+
+.article {
+    position: relative;
+    height: 23em;
+    width: 16em;
+    box-shadow: 0 0 0.3em rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+    text-align: center;
+    overflow: hidden;
+}
+
+.article h2 {
+    font-size: 21px;
+}
+
+.article-date {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 2.5em;
+}
+
+.card-img {
+    height: 10em;
+    width: 100%;
+    border-radius: 10px 10px 0 0;
+}
+
+.article .author {
+    padding: 0.6em;
+    background: #CDCDCD;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    margin: 0;
+    color: #0f121f;
+    border-radius: 0 0 10px 0;
+}
+
+.foot-class {
+    grid-area: foot;
+    background: #252525;
+    text-align: center;
+    width: 100%;
+    color: #e9d20f;
+    margin: 0 10px 0 0;
+}
+
+.logout-link button {
+    border: none;
+    color: #e9d20f;
+    cursor: pointer;
+    background: none;
+}
+
+
+/* PAGINATION */
+
+.pagination {
+    text-align: center;
+    margin-top: 3em;
+    display: flex;
+    justify-content: center;
+}
+
+.paginate {
+    padding: 0;
+    background: #252525;
+    padding: 8px 0 8px 0;
+    border-radius: 5px;
+}
+
+.pagination a {
+    text-decoration: none;
+    color: #e9d20f;
+    padding: 8px 16px;
+}
+
+.pagination a.active {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.pagination a:hover:not(.active) {
+    background-color: #e9d20f;
+    color: #252525;
+    border-radius: 5px;
+}
+
+.pagination li {
+    list-style-type: none;
+    display: inline;
+}
+
+
+/* ARTICLES DETAIL PAGES */
+
+.detail-container {
+    grid-area: 2 / 1 / span 2 / span 3;
+    margin: 0 0 0px 0;
+}
+
+.article-detail {
+    padding: 0px;
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+    text-align: center;
+    position: relative;
+}
+
+.detail-container h2 {
+    position: absolute;
+    z-index: 5;
+    top: 20vh;
+    left: 0;
+    right: 0;
+    color: #fff;
+    font-size: 2.5em;
+}
+
+.article-detail img {
+    width: 100%;
+    height: 70vh;
+}
+
+.detail-container .tags{
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 55vh;
+}
+
+.detail-container .tags span {
+    display: inline-block;
+    border: 1px solid #fff;
+    border-radius: 1em;
+    padding: 5px 10px;
+    color: #fff;
+    margin: 2px;
+}
+
+/* LOGIN/SIGNUP/ARTICLE_CREATE TEMPLATES */
+
+.login-container {
+    grid-area: 2 / 2 / span 2 / span 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 1em;
+}
+
+.login-border {
+    text-align: center;
+    background: #e9d20f;
+    padding: 3em 5em 5em 5em;
+    border-radius: 1.5em;
+}
+
+.site-login input, .site-login textarea{
+    padding: 5px;
+}
+
+.site-signup {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.site-signup input, .site-login textarea {
+    display: block;
+    padding: 5px;
+}
+
+.site-create {
+    display: flex;
+    flex-direction: column;
+    max-height: 100%;
+}
+
+.site-create .login-button {
+    margin-top: 5px;
+    width: fit-content;
+    align-self: center;
+}
+
+.login-button {
+    font-size: 0.9em;
+    border: 0;
+    color: #252525;
+}
+
+
+
+
+
+
+
+
+
+
+
+

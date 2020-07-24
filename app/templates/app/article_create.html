@@ -1,0 +1,17 @@
+{% extends 'base_layout.html' %}
+
+{% block content %}
+<div class='login-container'>
+<div class='login-border'>
+    <div>
+        <h2>Create New Article</h2>
+        <form class='site-create' action="{% url 'article:create' %}" method='post' enctype='multipart/form-data'>
+            {% csrf_token %}
+            {{ form }}
+            <input class='login-button' type="submit" value='Create'>
+        </form>
+    </div>
+    <script src='/static/slugify.js'></script>
+</div>
+</div>
+{% endblock %}

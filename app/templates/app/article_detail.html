@@ -1,0 +1,21 @@
+{% extends 'base_layout.html' %}
+
+{% block content %}
+    <div class='detail-container'>
+        <div class='article-detail'>
+            <img src='{{ article.thumb.url }}'>
+            {% if article.tags %}
+            <div class='tags'>
+                {% for tag in article.tags.all %}
+                    <span>{{ tag.title }}</span>
+                {% endfor %}
+            </div>
+            {% endif %}
+            </img>
+            <h2>{{ article.title }}</h2>
+            <p>{{ article.body }}</p>
+            <h3>Written by {{ article.author.username }}</h3>
+            <p>{{ article.date }}</p>
+        </div>
+    </div>
+{% endblock %}
